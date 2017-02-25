@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SeramicReport" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="3cc55f14-05b0-4440-a9ee-42941db32e78">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="checkNum" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT
+     SALES."ID" AS SALES_ID,
+     SALES."CUSTOMER_NAME" AS SALES_CUSTOMER_NAME,
+     SALES."CUSTOMER_ID" AS SALES_CUSTOMER_ID,
+     SALES."DATEE" AS SALES_DATEE,
+     SALES."MONTH" AS SALES_MONTH,
+     SALES."YEAR" AS SALES_YEAR,
+     SALES."EMP" AS SALES_EMP,
+     SALES."TOTAL" AS SALES_TOTAL,
+     SALES."TIME" AS SALES_TIME,
+     SALES."KHASM" AS SALES_KHASM,
+     PAYMENT."ID" AS PAYMENT_ID,
+     PAYMENT."TYPE" AS PAYMENT_TYPE,
+     PAYMENT."QUANTITY" AS PAYMENT_QUANTITY,
+     PAYMENT."PRICE" AS PAYMENT_PRICE,
+     PAYMENT."CUSTOMER_ID" AS PAYMENT_CUSTOMER_ID,
+     PAYMENT."CUSTOMER_NAME" AS PAYMENT_CUSTOMER_NAME,
+     PAYMENT."DATEE" AS PAYMENT_DATEE,
+     PAYMENT."FARTH" AS PAYMENT_FARTH,
+     PAYMENT."COLOR" AS PAYMENT_COLOR,
+     PAYMENT."TYPE_ID" AS PAYMENT_TYPE_ID,
+     PAYMENT."EMP" AS PAYMENT_EMP,
+     PAYMENT."MONTH" AS PAYMENT_MONTH,
+     PAYMENT."YEAR" AS PAYMENT_YEAR,
+     PAYMENT."PROFIT" AS PAYMENT_PROFIT,
+     PAYMENT."KHASM" AS PAYMENT_KHASM,
+     IMAGE_TABLE."ID" AS IMAGE_TABLE_ID,
+     IMAGE_TABLE."IMAGE" AS IMAGE_TABLE_IMAGE
+FROM
+     "SERA"."SALES" SALES,
+     "SERA"."PAYMENT" PAYMENT,
+     "SERA"."IMAGE_TABLE" IMAGE_TABLE
+where SALES."CUSTOMER_ID"=$P{checkNum}
+and  PAYMENT."CUSTOMER_ID"=$P{checkNum}]]>
+	</queryString>
+	<field name="SALES_ID" class="java.math.BigDecimal"/>
+	<field name="SALES_CUSTOMER_NAME" class="java.lang.String"/>
+	<field name="SALES_CUSTOMER_ID" class="java.math.BigDecimal"/>
+	<field name="SALES_DATEE" class="java.lang.String"/>
+	<field name="SALES_MONTH" class="java.math.BigDecimal"/>
+	<field name="SALES_YEAR" class="java.math.BigDecimal"/>
+	<field name="SALES_EMP" class="java.lang.String"/>
+	<field name="SALES_TOTAL" class="java.lang.Double"/>
+	<field name="SALES_TIME" class="java.lang.String"/>
+	<field name="SALES_KHASM" class="java.lang.Double"/>
+	<field name="PAYMENT_ID" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_TYPE" class="java.lang.String"/>
+	<field name="PAYMENT_QUANTITY" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_PRICE" class="java.lang.Double"/>
+	<field name="PAYMENT_CUSTOMER_ID" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_CUSTOMER_NAME" class="java.lang.String"/>
+	<field name="PAYMENT_DATEE" class="java.lang.String"/>
+	<field name="PAYMENT_FARTH" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_COLOR" class="java.lang.String"/>
+	<field name="PAYMENT_TYPE_ID" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_EMP" class="java.lang.String"/>
+	<field name="PAYMENT_MONTH" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_YEAR" class="java.math.BigDecimal"/>
+	<field name="PAYMENT_PROFIT" class="java.lang.Double"/>
+	<field name="PAYMENT_KHASM" class="java.lang.Double"/>
+	<field name="IMAGE_TABLE_ID" class="java.math.BigDecimal"/>
+	<field name="IMAGE_TABLE_IMAGE" class="java.awt.Image"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="131" splitType="Stretch">
+			<textField>
+				<reportElement x="272" y="59" width="183" height="20" uuid="876e8146-5fc5-435f-84b4-4cb5cec97e51"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALES_CUSTOMER_NAME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="59" width="100" height="20" uuid="0115e435-a2bf-408a-8a2a-c23a74285016"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[أسم العميل :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="14" width="100" height="20" uuid="dbc6d94d-ffe7-454e-ad89-460977ad2f51"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[فاتوره رقم :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="283" y="14" width="100" height="20" uuid="bd2f781e-c174-4621-bbca-17997ce34ee6"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALES_CUSTOMER_ID}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="283" y="34" width="100" height="1" uuid="d60b4742-b810-4411-bd22-a472b9aa86d3"/>
+			</line>
+			<line>
+				<reportElement x="283" y="14" width="100" height="1" uuid="08f5c0ea-3387-4588-94f6-a244ed290cdc"/>
+			</line>
+			<image>
+				<reportElement x="20" y="0" width="189" height="131" uuid="2ba1ed7b-08d1-4bff-a0af-eb2d02dee32e"/>
+				<imageExpression><![CDATA[$F{IMAGE_TABLE_IMAGE}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="5" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="432" y="7" width="100" height="20" uuid="c3fbd44b-736b-48c3-9b8d-8f4b2fc138f0"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الصنف]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="332" y="7" width="100" height="20" uuid="7411445e-8bc2-417c-9854-279c82fdfdbc"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الكميه]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="7" width="100" height="20" uuid="572b6378-1dcc-454a-86af-81adca66f2e2"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[اللون]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="7" width="100" height="20" uuid="d7bd712a-41b1-4f16-9c6c-821f339a77f3"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الفرز]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="7" width="100" height="20" uuid="29964fb7-5566-402d-9ab9-6d829a3c5c32"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[السعر]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="6" width="555" height="1" uuid="a0bf831b-3ac9-4f23-9499-a926c0e5ded2"/>
+			</line>
+			<line>
+				<reportElement x="0" y="26" width="555" height="1" uuid="23dbf03d-d3d3-48a7-aaff-2fb154973b39"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="232" y="0" width="100" height="20" uuid="22f15ad7-edf1-4c00-a78c-327bb67549d3"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYMENT_COLOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="0" width="100" height="20" uuid="040ae4b1-11bf-4d7c-9216-4fedca69044d"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYMENT_FARTH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="100" height="20" uuid="ecda97c7-48be-40b1-8d4e-fef771a50f6f"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYMENT_PRICE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="432" y="0" width="100" height="20" uuid="78426bff-bcd8-4497-8604-76182ed6cb1c"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYMENT_TYPE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="0" width="100" height="20" uuid="cd48655e-159e-4ebb-a4b1-3de3c8c1c508"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PAYMENT_QUANTITY}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="6" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="146" splitType="Stretch">
+			<staticText>
+				<reportElement x="318" y="75" width="100" height="20" uuid="5f7ced1e-1d84-4275-a87f-2ea9f41b3f5e"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[الاجمالى :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="195" y="75" width="123" height="20" uuid="150f6ac6-c045-46fa-b9e9-97a604dbef57"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SALES_TOTAL}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="258" y="74" width="160" height="1" uuid="13fd97c9-0e3a-48e7-ad6e-bf461afff2d7"/>
+			</line>
+			<line>
+				<reportElement x="258" y="95" width="160" height="1" uuid="040fd715-e77c-44c2-8d50-41e44bff5e4b"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>
